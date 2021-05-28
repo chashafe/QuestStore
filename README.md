@@ -1,5 +1,5 @@
 # Quest Store Project 
-Final version of team project. ASP.NET Core (MCV), Razor
+Final version of team project. ASP.NET Core (MVC), Razor
 
 Participants:
 - Natalia1004
