@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestStore-NAT</title>
+    <link href="../styles/normalize.css" rel="stylesheet">
+    <!--Third party resources-->
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link rel="icon" href="../images/QuestStore-NAT_icon.jpg" type="image">
+    <link href="../styles/fontello/css/queststore-nat.css" rel="stylesheet">
+    <!--Our styles-->
+    <link href="../styles/main.css" rel="stylesheet" />
+    <!--Our scripts-->
+    <script defer src="../javascript/Include.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img class="logo" src="../images/QuestStore-NAT_logo_nobcg.png" alt="QuestStore-NAT"/>
+            <nav class="main-navigation">     
+                <ul>
+                    <li><a href="index.html">Main</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Login</div>
+                        <div class="dropdown__content">
+                            <label class="dropdown--margin">Email:</label><br>
+                            <input id="login_email" class="dropdown--margin dropdown--input" type="text" placeholder="email" required><br>
+                            <label class="dropdown--margin">Password:</label><br>
+                            <input id="login_password" class="dropdown--margin dropdown--input" type="password" placeholder="password" required><br>
+                            <button id="login_button" class="dropdown--margin dropdown__button" type="submit"><a href="profile.html">Log In</a></button>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="hero-landing">
+            <h1>Welcome to QuestStore by NAT</h1>
+            <h2>Complete Quests, earn Codecool coins, gain experience, buy Artifacts, have Fun</h2>
+            <p>On this site you can exchange your hard work for fake money and fame.</p>
+            <p>Just like in real life but different.</p>
+            <p>If you have been a diligent Codecooler you will be rewarded. If not come and check what you can't afford.</p>
+        </div>
+
+        <div class="news">
+            <div class="news__featured-info">
+                <h3>Check new Quests</h3>
+                <p>
+                    Do you feel like going on an adventure? Assemble a team and move your roguelike projekt to 3D.
+                    500cc point are waiting for each member of a team.
+                    Extra 1000cc points for making it 4D.
+                </p>
+            </div>
+
+            <div class="news__featured-info">
+                <h3>Check new Artifacts in store</h3>
+                <p>
+                    Would like to know more? Standard 30min. consultations does not cut it anymore?
+                    Book yourself a mentor for full 1h for only 1000cc.
+                    Satisfaction guranteed.
+                </p>
+            </div>
+        </div>
+
+
+        <div w3-include-html="footer.html"></div>
+    </div>
+</body>
+</html>

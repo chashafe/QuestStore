@@ -1,0 +1,32 @@
+﻿@inject QuestStoreNAT.web.Services.ICurrentSession Session
+@model List<Mentor>
+
+@{
+    ViewData["Title"] = "ViewAllMentors";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+        <div id="landing__content" class="landing__content">
+
+                @foreach (var mentor in Model)
+                {
+                    <div class="show-all_box">
+                        <div class="show-all_user">
+                            <h3 class="user_name">@mentor.FirstName</h3>
+                            <h4 class="user_position"> @mentor.LastName </h4>
+                            <p class="show-all_text">@mentor.Bio</p>
+                            @if (Session.LoggedUserRole == Role.Admin)
+                            {
+                                <div class="admin-controll"><a asp-action="Edit" asp-route-Id="@mentor.Id" class="dropdown__button dropdown--margin">Edit</a></div>
+                                <div class="admin-controll"><a asp-action="Delete" asp-route-id="@mentor.Id" class="dropdown__button dropdown--margin">Delete</a></div>
+                                <div class="admin-controll"><a asp-action="Details" asp-route-id="@mentor.Id" class="dropdown__button dropdown--margin">Details</a></div>
+                            }
+                        </div>
+                    </div>
+                }
+
+        </div>
+</div>

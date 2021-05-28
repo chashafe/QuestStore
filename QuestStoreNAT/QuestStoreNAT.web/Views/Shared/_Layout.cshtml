@@ -1,0 +1,67 @@
+﻿@inject QuestStoreNAT.web.Services.ICurrentSession Session
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - QuestStore-NAT</title>
+    <!--Normalization-->
+    <link href="~/css/normalize.css" rel="stylesheet" />
+    <!--Third party resources-->
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" />
+    <link rel="icon" href="~/images/QuestStore-NAT_icon.jpg" type="image">
+    <link href="~/css/fontello/css/queststore-nat.css" rel="stylesheet" />
+    <!--Our styles-->
+    <link href="~/css/main.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a asp-controller="home" asp-action="index"><img class="logo" src="~/images/QuestStore-NAT_logo_no_background.png" alt="QuestStore-NAT" asp-append-version="true" /></a>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a asp-controller="home" asp-action="index">Main</a></li>
+                    <li><a asp-controller="home" asp-action="contact">Contact</a></li>
+                    @if (Session.LoggedUserRole == Role.None)
+                    {
+                        <partial name="~/Views/Shared/_Login.cshtml"/>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="home" asp-action="logout">Logout</a></li>
+                    }
+                </ul>
+            </nav>
+        </header>
+
+        @if (TempData["Message"] != null)
+        {
+            <div id="info_box" class="hero-landing" onclick="TurnOff()">
+                <h5 class="info-box">@TempData["Message"]</h5>
+            </div>
+        }
+
+        @RenderBody()
+
+        <footer class="main-footer">
+            <div class="main-footer__social">
+                <p>Follow us:</p>
+                <i class="icon-facebook"></i>
+                <i class="icon-linkedin"></i>
+                <i class="icon-youtube"></i>
+                <i class="icon-instagram"></i>
+                <i class="icon-twitter"></i>
+            </div>
+        </footer>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
+    </div>
+</body>
+</html>

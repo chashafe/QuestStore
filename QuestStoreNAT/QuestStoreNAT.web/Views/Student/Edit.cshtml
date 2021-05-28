@@ -1,0 +1,56 @@
+﻿@model StudentEditViewModel
+
+@{
+    ViewData["Title"] = "EditStudent";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+        <div id="landing__content" class="landing__content landing__content-justify ">
+            <div class="form-limit">
+                <form class="form" asp-action="Edit" asp-controller="Student" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" value="Id" />
+
+                    <h3 class="dropdown--margin">Edit Student</h3>
+
+                    <div>
+                        <label class="dropdown--margin form-select form-margin" asp-for="ClassID">Class Name:</label>
+                        <select asp-for="ClassID"
+                                class=" dropdown--input dropdown--margin"
+                                asp-items="@(new SelectList(Model.Classrooms.ToList(), "Id", "Name"))">
+                            <option value="">Please select</option>
+                        </select>
+                        <span asp-validation-for="ClassID" class="text-danger"></span><br />
+                    </div>
+                    <div>
+                        <label class="dropdown--margin form-select form-margin" asp-for="GroupID">Group Name:</label>
+                        <select asp-for="GroupID"
+                                class=" dropdown--input dropdown--margin"
+                                asp-items="@(new SelectList(Model.Groups.ToList(), "Id", "Name"))">
+                            <option value="">Please select</option>
+                        </select>
+                        <span asp-validation-for="GroupID" class="text-danger"></span><br />
+                    </div>
+
+                    <label class="dropdown--margin form-label form-margin" asp-for="FirstName"></label>
+                    <input class="dropdown--input dropdown--margin form-margin" asp-for="FirstName" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span><br />
+
+                    <label class="dropdown--margin form-label form-margin" asp-for="LastName"></label>
+                    <input class="dropdown--input dropdown--margin form-margin" asp-for="LastName" />
+                    <span asp-validation-for="LastName" class="text-danger"></span><br />
+
+                    <div class="form__submit">
+                        <button type="submit" class="dropdown__button dropdown--margin">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

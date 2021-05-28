@@ -1,0 +1,70 @@
+﻿@model List<OwnedQuestIdWithQuest>
+
+@{
+    ViewData["Title"] = "StudentQuestView";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+    <div class="student_panel">
+            <div class="artifacts">
+                <div class="header_artifacts">Individual Unfinished Quests</div>
+                <div id="artifact">
+                    @foreach (var quest in Model.Where(q => q.OwnedQuest.QuestStatus == CompletionStatus.Unfinished && q.OwnedQuest.Type == TypeClassification.Individual))
+                    {
+                    <div class="questreward questreward--individual">
+                        <a asp-action="DeclaimIndividualQuest" asp-controller="Quest" asp-route-id="@quest.OwnedId" class="questreward__remover"> X </a>
+                        <h3 class="questreward__title">@quest.OwnedQuest.Name</h3>
+                        <h3 class="questreward__cost">@quest.OwnedQuest.Cost</h3>
+                        <p class="questreward__description">@quest.OwnedQuest.Description</p>
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="artifacts">
+                <div class="header_artifacts">Individual Finished Quests</div>
+                <div id="artifact">
+                    @foreach (var quest in Model.Where(q => q.OwnedQuest.QuestStatus == CompletionStatus.Finished && q.OwnedQuest.Type == TypeClassification.Individual))
+                    {
+                    <div class="questreward questreward--used">
+                        <a asp-action="DeclaimIndividualQuest" asp-controller="Quest" asp-route-id="@quest.OwnedId" class="questreward__remover"> X </a>
+                        <h3 class="questreward__title">@quest.OwnedQuest.Name</h3>
+                        <h3 class="questreward__cost">@quest.OwnedQuest.Cost</h3>
+                        <p class="questreward__description">@quest.OwnedQuest.Description</p>
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="artifacts">
+                <div class="header_artifacts">Group Unfinished Quests</div>
+                <div id="artifact">
+                    @foreach (var quest in Model.Where(q => q.OwnedQuest.QuestStatus == CompletionStatus.Unfinished && q.OwnedQuest.Type == TypeClassification.Group))
+                    {
+                    <div class="questreward questreward--group">
+                        <a asp-action="DeclaimGroupQuest" asp-controller="Quest" asp-route-id="@quest.OwnedId" class="questreward__remover"> X </a>
+                        <h3 class="questreward__title">@quest.OwnedQuest.Name</h3>
+                        <h3 class="questreward__cost">@quest.OwnedQuest.Cost</h3>
+                        <p class="questreward__description">@quest.OwnedQuest.Description</p>
+                    </div>
+                    }
+                </div>
+            </div>
+  
+            <div class="artifacts">
+                <div class="header_artifacts">Group Finished Quests</div>
+                <div id="artifact">
+                    @foreach (var quest in Model.Where(q => q.OwnedQuest.QuestStatus == CompletionStatus.Finished && q.OwnedQuest.Type == TypeClassification.Group))
+                    {
+                    <div class="questreward questreward--used">
+                        <a asp-action="DeclaimGroupQuest" asp-controller="Quest" asp-route-id="@quest.OwnedId" class="questreward__remover"> X </a>
+                        <h3 class="questreward__title">@quest.OwnedQuest.Name</h3>
+                        <h3 class="questreward__cost">@quest.OwnedQuest.Cost</h3>
+                        <p class="questreward__description">@quest.OwnedQuest.Description</p>
+                    </div>
+                    }
+                </div>
+            </div>
+    </div>
+</div>

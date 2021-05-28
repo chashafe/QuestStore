@@ -1,0 +1,46 @@
+﻿@inject QuestStoreNAT.web.Services.ICurrentSession Session
+@model QuestStoreNAT.web.Models.Group
+
+@{
+    ViewData["Title"] = "EditGroup";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+        <div id="landing__content" class="landing__content landing__content-justify ">
+            <div class="form-limit">
+
+                <form class="form" asp-action="Edit" asp-controller="Group" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <h3 class="dropdown--margin">Edit Group</h3>
+
+                    <label asp-for="Name" class="dropdown--margin form-label form-margin"></label>
+                    <input asp-for="Name" class="dropdown--input dropdown--margin form-margin" />
+                    <span asp-validation-for="Name" class="text-danger"></span><br>
+
+                    <div>
+                        <label class="dropdown--margin form-select form-margin" asp-for="ClassroomId">Class Name:</label>
+                        <select asp-for="ClassroomId"
+                                class=" dropdown--input dropdown--margin"
+                                asp-items="@(new SelectList((Session.LoggedUser as Mentor).MentorClassrooms.ToList(), "Id", "Name"))">
+                            <option value="">Please select</option>
+                        </select>
+                        <span asp-validation-for="ClassroomId" class="text-danger"></span><br />
+                    </div>
+
+                    <div class="form__submit">
+                        <button type="submit" class="dropdown__button dropdown--margin">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

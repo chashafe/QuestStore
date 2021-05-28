@@ -1,0 +1,63 @@
+﻿@model MentorDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details Mentor";
+}
+
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+        <div class="student_panel">
+            <div class="table_container">
+                <div id="mentor" class="grid_table">
+                    <span class="headerSpan"><strong>First Name</strong></span>
+                    <span class="headerSpan"><strong>Last Name</strong></span>
+                    <span class="headerSpan"><strong>Bio</strong></span>
+                    <span class="cellSpan">@Model.Mentor.FirstName </span>
+                    <span class="cellSpan">@Model.Mentor.LastName</span>
+                    <span class="cellSpan">@Model.Mentor.Bio</span>
+                </div>
+
+                <div id="classes" class="grid_table">
+                    <span class="headerSpan"><strong>Class Name</strong></span>
+                    <span class="cellSpan">
+                        @if (Model.Classrooms.Count() == 0)
+                        {
+                            <span class="cellSpan">The mentor has not been assigned to any class so far</span>
+                        }
+                        @foreach (var item in Model.Classrooms)
+                        {
+                            <a>@item.Name</a>
+                        }
+                    </span>
+                </div>
+
+                <div id="groups" class="grid_table">
+                    <span class="headerSpan"><strong>Group Name</strong></span>
+                    <span class="headerSpan"><strong>Group Wallet </strong></span>
+                    @foreach (var group in Model.Groups)
+                    {
+                        <span class="cellSpan">@group.Name</span>
+                        <span class="cellSpan">@group.GroupWallet</span>
+                    }
+
+                </div>
+
+
+                <div id="students" class="grid_table">
+                    <span class="headerSpan"><strong>First Name</strong></span>
+                    <span class="headerSpan"><strong>Last Name</strong></span>
+                    <span class="headerSpan"><strong>Wallet</strong></span>
+
+                    @foreach (var student in Model.Students)
+                    {
+                        <span class="cellSpan">@student.FirstName</span>
+                        <span class="cellSpan">@student.LastName</span>
+                        <span class="cellSpan">@student.Wallet</span>
+                    }
+                </div>
+            </div>
+        </div>
+</div>
+

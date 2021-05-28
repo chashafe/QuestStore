@@ -1,0 +1,24 @@
+﻿@inject QuestStoreNAT.web.Services.ICurrentSession Session
+@model QuestStoreNAT.web.Models.StudentAcceptance
+
+@{
+    ViewData["Title"] = "Message";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+        <div id="landing__content" class="landing__content landing__content-justify ">
+            <form class="form" asp-controller="Message" asp-action="Acceptance" method="post" style="text-align:center">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-limit">
+                    <h3 class="dropdown--margin">Do you agree to buy Group Artifact ?</h3>
+                    <div class="form-label">Artifact Name : @Model.artifactName</div><br>
+                    <div class="form-label" style="color:yellow">Artifact Cost : @Model.costArtifact</div><br>
+                    <div class="form-label">Amount of acceptance : @Model.currentAmountOfAcceptance</div><br>
+                    <input class="dropdown__button" type="submit" name="answear" value="Accept"><br>
+                    <input class="dropdown__button" type="submit" name="answear" value="No, I don't agree">
+                </div>
+            </form>
+        </div>
+</div>

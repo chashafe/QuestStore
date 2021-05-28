@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestStore-NAT</title>
+    <link href="../styles/normalize.css" rel="stylesheet">
+    <!--Third party resources-->
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link rel="icon" href="../images/QuestStore-NAT_icon.jpg" type="image">
+    <link href="../styles/fontello/css/queststore-nat.css" rel="stylesheet">
+    <!--Our styles-->
+    <link href="../styles/main.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div w3-include-html="navBarLogged.html"></div>
+
+
+        <div class="landing">
+            <div w3-include-html="sidebar.html"></div>
+            <div class="landing__content landing__content-justify">
+                <form id="form-quest-reward" action="/" method="GET">
+                    <fieldset>
+                    <!-- <div class="form"> -->
+                        <h3 class="dropdown--margin">Create classrom </h3>
+                        <label class="dropdown--margin">Choose what do you want to add:</label><br>
+                        <select id="quest-reward-option" class="dropdown--input dropdown--margin">
+                            <option value="quest">Class</option>
+                            <option value="artifact">Group</option>
+                        </select><br><br>
+                        <input type="checkbox" class="create_classroom" value="Student1"
+                            onclick="GetSelectedStudents()">  Student 1<br>
+                        <input type="checkbox" class="create_classroom" value="Student2"
+                            onclick="GetSelectedStudents()">  Student 2<br>
+                        <input type="checkbox" class="create_classroom" value="Student3"
+                            onclick="GetSelectedStudents()">  Student 3<br>
+                        <input type="checkbox" class="create_classroom" value="Student4"
+                            onclick="GetSelectedStudents()">  Student 4<br>
+                        <input type="checkbox" class="create_classroom" value="Student5"
+                            onclick="GetSelectedStudents()">  Student 5<br>
+                        <input type="checkbox" class="create_classroom" value="Student6"
+                            onclick="GetSelectedStudents()">  Student 6<br>
+                        <br>
+                        <input class="dropdown__button" type="submit" value="Proceed" />
+                    <!-- </div> -->
+                    </fieldset> 
+                </form>
+            </div>
+        </div>
+
+
+        <div w3-include-html="footer.html"></div>
+    </div>
+    <script src="../javascript/mentors.js" async defer></script>
+    <script src="../javascript/Include.js" async defer></script>
+
+</body>
+
+</html>

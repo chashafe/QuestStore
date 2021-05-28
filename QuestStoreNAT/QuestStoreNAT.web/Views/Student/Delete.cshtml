@@ -1,0 +1,28 @@
+﻿@model Student
+
+@{
+    ViewData["Title"] = "Delete Student";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+        <div id="landing__content" class="landing__content landing__content-justify ">
+
+            <h3 class="delete-title">Are you sure you want to delete chosen Student?</h3>
+
+            <div class="hero-landing">
+                <div class="questreward">
+                    <h3 class="questreward__title">@Model.FirstName</h3>
+                    <h3 class="user_position">@Model.LastName</h3>
+                </div>
+                <form asp-action="DeleteStudent" asp-controller="Student" method="post">
+                    @Html.HiddenFor(m => m.Id)
+                    <input type="submit" value="Delete" class="dropdown__button" />
+                </form>
+                <input class="dropdown__button" type="button" value="No -> go back!" onclick="location.href='@Url.Action("Index", "Student")'" />
+
+            </div>
+        </div>
+</div>

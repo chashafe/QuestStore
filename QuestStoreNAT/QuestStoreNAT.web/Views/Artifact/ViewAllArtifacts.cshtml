@@ -1,0 +1,72 @@
+﻿@inject QuestStoreNAT.web.Services.ICurrentSession Session
+@model List<Artifact>
+
+@{
+    ViewData["Title"] = "ViewAllArtifacts";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+        <div id="landing__content" class="landing__content">
+
+        @if (TempData["ArtifactMessage"] != null)
+        {
+            <div id="info_box" class="hero-landing info-box-landing" onclick="TurnOff()">
+                <h5 class="info-box">@TempData["ArtifactMessage"]</h5>
+            </div>
+        }
+
+        <div class="landing__content__wrapper">
+            <h3 class="landing__content--border landing__content--margin">Would you like to buy something for yourself?</h3>
+        </div>
+        @foreach (var artifact in Model.Where(q => q.Type == TypeClassification.Individual).OrderBy(q => q.Cost))
+        {
+            <div class="questreward questreward--individual">
+                <h3 class="questreward__title">@artifact.Name</h3>
+                <h3 class="questreward__cost">@artifact.Cost</h3>
+                <p class="questreward__description">@artifact.Description</p>
+                @if (Session.LoggedUserRole == Role.Mentor | Session.LoggedUserRole == Role.Admin)
+                {
+                    <div class="admin-controll">
+                        <a asp-action="EditArtifact" asp-route-id="@artifact.Id" class="dropdown__button">Edit</a>
+                        <a asp-action="DeleteArtifact" asp-route-id="@artifact.Id" class="dropdown__button">Delete</a>
+                    </div>
+                }
+                @if (Session.LoggedUserRole == Role.Student)
+                {
+                    <div class="admin-controll">
+                        <a asp-action="BuyArtifact" asp-route-id="@artifact.Id" class="dropdown__button dropdown--margin">Buy</a>
+                    </div>
+                }
+            </div>
+        }
+
+        <div id="dividerh3" class="landing__content__wrapper margin50top">
+            <h3 class="landing__content--border landing__content--margin">Would you like to buy something for the group?</h3>
+        </div>
+        @foreach (var artifact in Model.Where(q => q.Type == TypeClassification.Group).OrderBy(q => q.Cost))
+        {
+            <div class="questreward questreward--group">
+                <h3 class="questreward__title">@artifact.Name</h3>
+                <h3 class="questreward__cost">@artifact.Cost</h3>
+                <p class="questreward__description">@artifact.Description</p>
+                @if (Session.LoggedUserRole == Role.Mentor | Session.LoggedUserRole == Role.Admin)
+                {
+                    <div class="admin-controll">
+                        <a asp-action="EditArtifact" asp-route-id="@artifact.Id" class="dropdown__button">Edit</a>
+                        <a asp-action="DeleteArtifact" asp-route-id="@artifact.Id" class="dropdown__button">Delete</a>
+                    </div>
+                }
+                @if (Session.LoggedUserRole == Role.Student)
+                {
+                    <div class="admin-controll">
+                        <a asp-action="BuyGroupArtifact" asp-route-id="@artifact.Id" class="dropdown__button dropdown--margin">Buy</a>
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿@inject QuestStoreNAT.web.Services.ICurrentSession Session
+@model IEnumerable<Classroom>
+
+@{
+    ViewData["Title"] = "ViewAllClassrooms";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+        <div id="landing__content" class="landing__content">
+
+            @if (Session.LoggedUserRole == Role.Admin)
+            {
+                @foreach (var classroom in Model)
+                {
+                    <div class="show-all_box">
+                        <div class="show-all_user padding20top">
+                            <h3 class="questreward__cost">@classroom.Name</h3>
+                            <br />
+                            <div class="admin-controll">
+                                <a asp-action="Edit" asp-route-id="@classroom.Id" class="dropdown__button dropdown--margin">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@classroom.Id" class="dropdown__button dropdown--margin">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+            <div id="dividerh3" class="landing__content__wrapper margin50top">
+                <a asp-action="Create" class="dropdown__button dropdown--margin">Add Classroom</a>
+            </div>
+        </div>
+</div>

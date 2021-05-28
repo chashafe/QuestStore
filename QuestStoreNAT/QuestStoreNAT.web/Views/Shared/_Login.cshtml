@@ -1,0 +1,22 @@
+﻿@model Credentials
+
+<div class="dropdown">
+    <div class="dropdown-link">Login</div>
+    <div class="dropdown__content">
+        <form asp-controller="Home" asp-action="Login" method="post">
+
+            <label asp-for="Email" class="dropdown--margin">Email:</label><br>
+            <input asp-for="Email" id="login_email" class="dropdown--margin dropdown--input" type="email" placeholder="email" required><br>
+            <span asp-validation-for="Email" class="text-danger"></span><br>
+
+            <label asp-for="Password" class="dropdown--margin">Password:</label><br>
+            <input asp-for="Password" id="login_password" class="dropdown--margin dropdown--input" type="password" placeholder="password" required><br>
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <div class="form__submit">
+                <button type="submit" class="dropdown__button">Login</button>
+            </div>
+
+        </form>
+    </div>
+</div>

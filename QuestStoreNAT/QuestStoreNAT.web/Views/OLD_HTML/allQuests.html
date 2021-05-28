@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestStore-NAT</title>
+    <link href="../styles/normalize.css" rel="stylesheet">
+    <!--Third party resources-->
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link rel="icon" href="../images/QuestStore-NAT_icon.jpg" type="image">
+    <link href="../styles/fontello/css/queststore-nat.css" rel="stylesheet">
+    <!--Our styles-->
+    <link href="../styles/main.css" rel="stylesheet" />
+    <!--Our scripts-->
+    <script defer src="../javascript/Include.js"></script>
+    <script defer src="../javascript/QuestReward.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div w3-include-html="navBarLogged.html"></div>
+
+
+        <div class="landing">
+            <div w3-include-html="sidebar.html"></div>
+
+            <div id="landing__content" class="landing__content">
+                <div class="landing__content__wrapper">
+                    <h3 class="landing__content--border landing__content--margin">All available Quests at the moment:</h3>
+                </div>
+                <!--Ensures the entire DOM tree is loaded and then execute the function.-->
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    printAllQuests();
+                }, false);
+                </script>
+            </div>
+        </div>
+
+
+        <div w3-include-html="footer.html"></div>
+    </div>
+</body>
+</html>

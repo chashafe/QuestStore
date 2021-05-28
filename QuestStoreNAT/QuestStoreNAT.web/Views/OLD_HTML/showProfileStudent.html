@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestStore-NAT</title>
+    <link href="../styles/normalize.css" rel="stylesheet">
+    <!--Third party resources-->
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link rel="icon" href="../images/QuestStore-NAT_icon.jpg" type="image">
+    <link href="../styles/fontello/css/queststore-nat.css" rel="stylesheet">
+    <!--Our styles-->
+    <link href="../styles/main.css" rel="stylesheet" />
+    <script defer src = "../javascript/studentJS.js"></script>
+    <script defer src="../javascript/Include.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div w3-include-html="navBarLogged.html"></div>
+
+
+        <div class="landing">
+            <div w3-include-html="sidebar.html"></div>
+
+            <div class="student_panel">
+                <div class="header_profile">
+                    <div id="nameStudent"></div>
+                    <div id="coolcoins"></div>
+                </div>
+                <div id="Level">
+                    Level : <img src="../images/level/first.jpg" />
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            printLevel();
+                        }, false);
+                    </script>
+                </div>
+                <div class="artifacts">
+                    <div class="header_artifacts">Your Artifacts</div>
+                    <div id="artifact">
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                printAllIndividualRewards();
+                            }, false);
+                        </script>
+                    </div>
+                </div>
+                <div class="artifacts">
+                    <div class="header_artifacts">Used Artifacts</div>
+                    <div id="usedArtifact">
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                printUsedRewards();
+                            }, false);
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div w3-include-html="footer.html"></div>
+    
+    </div>
+</body>
+</html>

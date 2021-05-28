@@ -1,0 +1,37 @@
+﻿@inject QuestStoreNAT.web.Services.ICurrentSession Session
+
+<aside class="landing__sidebar-menu">
+    <div class="">
+        <h3>Main Menu:</h3>
+        <ul>
+            @if (Session.LoggedUserRole == Role.Admin | Session.LoggedUserRole == Role.Mentor | Session.LoggedUserRole == Role.Student)
+            {
+                @if (Session.LoggedUserRole == Role.Student)
+                {
+                    <li><a asp-action="ShowStudentProfile" asp-controller="Profile"><button class="dropdown__button">Show My Profile</button></a></li>
+                    <li><a asp-action="StudentQuestView" asp-controller="Quest"><button class="dropdown__button">My Quests</button></a></li>
+                    <li><a asp-action="Message" asp-controller="Message"><button class="dropdown__button">Messages</button></a></li>
+                }
+                else if (Session.LoggedUserRole == Role.Mentor)
+                {
+                    <li><input class="dropdown__button" type="button" value="Show My Profile" onclick="location.href='@Url.Action("ShowMentorProfile", "Mentor")'" /></li>
+                    <li><button class="dropdown__button" onclick="location.href='@Url.Action("Index", "Group")'">All Groups</button></li>
+                }
+                <li><a asp-action="ViewAllArtifacts" asp-controller="Artifact"><button class="dropdown__button">Artifacts Shop</button></a></li>
+                <li><input class="dropdown__button" type="button" value="View all Quests" onclick="location.href='@Url.Action("ViewAllQuests", "Quest")'" /></li>
+            }
+            @if (Session.LoggedUserRole == Role.Admin | Session.LoggedUserRole == Role.Mentor)
+            {
+                <li><button class="dropdown__button" onclick="location.href='@Url.Action("AddCredentials", "Credentials")'">Add User</button></li>
+                <li><input class="dropdown__button" type="button" value="Add Quest" onclick="location.href='@Url.Action("AddQuest", "Quest")'" /></li>
+                <li><input class="dropdown__button" type="button" value="Add Artifact" onclick="location.href='@Url.Action("AddArtifact", "Artifact")'" /></li>
+                <li><button class="dropdown__button" onclick="location.href='@Url.Action("Index", "Student")'">All Students</button></li>
+            }
+            @if (Session.LoggedUserRole == Role.Admin)
+            {
+                <li><button class="dropdown__button" onclick="location.href='@Url.Action("Index", "Mentor")'">All Mentors</button></li>
+                <li><button class="dropdown__button" onclick="location.href='@Url.Action("Index", "Classroom")'">All Classrooms</button></li>
+            }
+        </ul>
+</div>
+</aside>

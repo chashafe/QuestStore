@@ -1,0 +1,38 @@
+﻿@inject QuestStoreNAT.web.Services.ICurrentSession Session
+@model QuestStoreNAT.web.Models.Classroom
+
+@{
+    ViewData["Title"] = "EditClassroom";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+        @if (Session.LoggedUserRole == Role.Admin)
+        {
+            <div id="landing__content" class="landing__content landing__content-justify ">
+                <div class="form-limit">
+
+                    <form class="form" asp-action="Edit" asp-controller="Classroom" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <h3 class="dropdown--margin">Edit Clasroom</h3>
+
+                        <label asp-for="Name" class="dropdown--margin form-label form-margin"></label>
+                        <input asp-for="Name" class="dropdown--input dropdown--margin form-margin" />
+                        <span asp-validation-for="Name" class="text-danger"></span><br>
+
+                        <div class="form__submit">
+                            <button type="submit" class="dropdown__button dropdown--margin">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

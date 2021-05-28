@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestStore-NAT</title>
+    <link href="../styles/normalize.css" rel="stylesheet">
+    <!--Third party resources-->
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link rel="icon" href="../images/QuestStore-NAT_icon.jpg" type="image">
+    <link href="../styles/fontello/css/queststore-nat.css" rel="stylesheet">
+    <!--Our styles-->
+    <link href="../styles/main.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div w3-include-html="navBarLogged.html"></div>
+
+
+        <div class="landing">
+            <div w3-include-html="sidebar.html"></div>
+            <div class="landing__content landing__content-justify">
+                <form id="form-quest-reward" action="/" method="GET">
+                    <div class="form">
+                        <h3 class="dropdown--margin">Add Student to DB</h3>
+                        <label class="dropdown--margin">Enter first name: </label><br>
+                        <input id="student_first-name" class="dropdown--input dropdown--margin" name="quest-reward-title" type="text" placeholder="Enter first name" required /><br>
+                        <label class="dropdown--margin">Enter last name: </label><br>
+                        <input id="student_last-name" class="dropdown--input dropdown--margin" name="quest-reward-title" type="text" placeholder="Enter last name" required /><br>
+                        <label class="dropdown--margin">Provide student's e-mail: </label><br>
+                        <input id="student_email" class="dropdown--input dropdown--margin" name="quest-reward-cost" type="email" placeholder="Enter an e-mail" required /><br>
+                        <label class="dropdown--margin">Provide basic password: </label><br>
+                        <input id="student_password" class="dropdown--input dropdown--margin" name="quest-reward-cost" type="text" placeholder="Enter default password" required /><br>
+                        <label class="dropdown--margin">Enter the class assignement: </label><br>
+                        <input id="student_class" class="dropdown--input dropdown--margin" name="quest-reward-cost" type="text" placeholder="Enter an assignement" required /><br>
+                        <label class="dropdown--margin">Enter the group: </label><br>
+                        <input id="student_group" class="dropdown--input dropdown--margin" name="quest-reward-cost" type="text" placeholder="Enter the group" required /><br>
+                        <label class="dropdown--margin">Students Bio:</label><br>
+                        <textarea id="student_description" class="dropdown--input dropdown--margin" rows="5" , cols="20" placeholder="Provide short bio of a student"></textarea> <br>
+                        <div class="form__submit">
+                            <button id="student_add" class="dropdown__button dropdown--margin" type="submit">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+
+        <div w3-include-html="footer.html"></div>
+    </div>
+    <script src="../javascript/mentors.js" async defer></script>
+    <script src="../javascript/Include.js" async defer></script>
+
+</body>
+
+</html>

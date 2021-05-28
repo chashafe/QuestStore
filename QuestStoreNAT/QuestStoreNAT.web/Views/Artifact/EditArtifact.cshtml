@@ -1,0 +1,51 @@
+﻿@model QuestStoreNAT.web.Models.Artifact
+
+@{
+    ViewData["Title"] = "EditArtifact";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+        <div id="landing__content" class="landing__content landing__content-justify ">
+            <div class="form-limit">
+                <form class="form" asp-controller="Artifact" asp-action="EditArtifact" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <h3 class="dropdown--margin">Edit Artifact</h3>
+
+                    <label asp-for="Name" class="dropdown--margin form-label form-margin"></label>
+                    <input asp-for="Name" class="dropdown--input dropdown--margin form-margin" />
+                    <span asp-validation-for="Name" class="text-danger"></span><br />
+
+
+                    <label asp-for="Cost" class="dropdown--margin form-label form-margin"></label>
+                    <input asp-for="Cost" class="dropdown--input dropdown--margin form-margin" />
+                    <span asp-validation-for="Cost" class="text-danger"></span><br />
+
+                    <div>
+                        <label asp-for="Type" class="dropdown--margin form-select form-margin"></label>
+                        <select asp-for="Type" asp-items="Html.GetEnumSelectList<TypeClassification>()" class="dropdown--input dropdown--margin">
+                            <option value="">Please select</option>
+                        </select>
+                    </div>
+                    <span asp-validation-for="Type" class="text-danger"></span><br />
+
+
+                    <label asp-for="Description" class="dropdown--margin form-label form-margin"></label>
+                    <textarea asp-for="Description" class="dropdown--input dropdown--margin contact_textbox--height form-margin"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span><br />
+
+
+                    <div class="form__submit">
+                        <button type="submit" class="dropdown__button dropdown--margin">Edit Artifact</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

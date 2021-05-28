@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+    <div id="landing__content" class="landing__content">
+        <div class="landing__content__wrapper">
+            <h3 class="landing__content--border landing__content--margin">All available Quests at the moment:</h3>
+        </div>
+        <!--Ensures the entire DOM tree is loaded and then execute the function.-->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                printAllQuests();
+            }, false);
+        </script>
+    </div>
+</div>

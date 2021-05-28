@@ -1,0 +1,62 @@
+﻿<!DOCTYPE HTML>
+
+<html lang = "pl">
+
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestStore-NAT</title>
+    <link href="../styles/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link rel="icon" href="../images/QuestStore-NAT_icon.jpg" type="image">
+	<script src="../javascript/ValidationContact.js" defer></script>
+	<link href="../styles/fontello/css/queststore-nat.css" rel="stylesheet">
+	<!--Our styles-->
+	<link href="../styles/main.css" rel="stylesheet" />
+	<!--Our scripts-->
+	<script defer src="../javascript/Include.js"></script>
+</head>
+
+ <body>
+	<div class="container">
+        <!--<div w3-include-html="navBarLogged.html"></div>-->
+		<header>
+            <img class="logo" src="../images/QuestStore-NAT_logo_nobcg.png" alt="QuestStore-NAT"/>
+            <nav class="main-navigation">     
+                <ul>
+                    <li><a href="index.html">Main</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Login</div>
+                        <div class="dropdown__content">
+                            <label class="dropdown--margin">Email:</label><br>
+                            <input id="login_email" class="dropdown--margin dropdown--input" type="text" placeholder="email" required><br>
+                            <label class="dropdown--margin">Password:</label><br>
+                            <input id="login_password" class="dropdown--margin dropdown--input" type="password" placeholder="password" required><br>
+                            <button id="login_button" class="dropdown--margin dropdown__button" type="submit"><a href="profile.html">Log In</a></button>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+		</header>
+		
+	<main>
+		<article>
+			<div class = "second_header_contact"><h3>Contact Us!</h3></div>
+			<div class="contact">
+			<input type="text" id="name" placeholder="Enter name">
+			<input type="text" id="email" placeholder="Enter email">
+			<input type="text" id="subject" placeholder="Enter title">
+			<textarea style="height: 200px" id="message" placeholder="Message text..."></textarea>
+			<button id = "send">Send</button>
+			</div>
+        </article>
+	</main>
+	
+		<div w3-include-html="footer.html"></div>
+    </div>
+</body>
+
+
+</html>  

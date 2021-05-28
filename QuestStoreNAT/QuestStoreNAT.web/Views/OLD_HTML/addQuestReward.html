@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestStore-NAT</title>
+    <link href="../styles/normalize.css" rel="stylesheet">
+    <!--Third party resources-->
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link rel="icon" href="../images/QuestStore-NAT_icon.jpg" type="image">
+    <link href="../styles/fontello/css/queststore-nat.css" rel="stylesheet">
+    <!--Our styles-->
+    <link href="../styles/main.css" rel="stylesheet" />
+    <!--Our scripts-->
+    <script defer src="../javascript/Include.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div w3-include-html="navBarLogged.html"></div>
+
+        <div class="landing">
+            <div w3-include-html="sidebar.html"></div>
+
+
+            <div class="landing__content landing__content-justify">
+                <form id="form-quest-reward" action="/" method="GET">
+                    <div class="form">
+                        <h3 class="dropdown--margin">Add Quest or Artifact:</h3>
+                        <label class="dropdown--margin">Choose what entity you want to add:</label><br>
+                        <select id="quest-reward-option" class="dropdown--input dropdown--margin">
+                            <option value="quest">Quest</option>
+                            <option value="artifact">Artifact</option>
+                        </select><br>
+                        <label class="dropdown--margin">Choose the type:</label><br>
+                        <select id="quest-reward-option" class="dropdown--input dropdown--margin">
+                            <option value="quest">Individual</option>
+                            <option value="artifact">Group</option>
+                        </select><br>
+                        <label class="dropdown--margin">Title:</label><br>
+                        <input id="quest-reward-title" class="dropdown--input dropdown--margin" name="quest-reward-title" type="text" placeholder="Enter title" required/><br>
+                        <label class="dropdown--margin">Cost:</label><br>
+                        <input id="quest-reward-cost" class="dropdown--input dropdown--margin" name="quest-reward-cost" type="number" placeholder="Provide cost in cc" required/><br>
+                        <label class="dropdown--margin">Description:</label><br>
+                        <textarea id="quest-reward-description" class="dropdown--input dropdown--margin" rows="5", cols="20" placeholder="Please enter your description here."></textarea><br>
+                        <div class="form__submit">
+                            <button id="quest-reward-add" class="dropdown__button dropdown--margin" type="submit">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div w3-include-html="footer.html"></div>
+    </div>
+</body>
+</html>

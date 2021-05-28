@@ -1,0 +1,41 @@
+﻿@model QuestStoreNAT.web.Models.Artifact
+
+@{
+    ViewData["Title"] = "DeleteArtifact";
+}
+
+    <div class="landing">
+
+        <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+            <div id="landing__content" class="landing__content landing__content-justify ">
+
+                <h3 class="delete-title">Are you sure you want to delete this Artifact?</h3>
+
+                <div class="hero-landing">
+                    @if (Model.Type == TypeClassification.Individual)
+                    {
+                        <div class="questreward questreward--individual">
+                            <h3 class="questreward__title">@Model.Name</h3>
+                            <h3 class="questreward__cost">@Model.Cost</h3>
+                            <h3 class="questreward__cost">@Model.Type</h3>
+                            <p class="questreward__description">@Model.Description</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="questreward questreward--group">
+                            <h3 class="questreward__title">@Model.Name</h3>
+                            <h3 class="questreward__cost">@Model.Cost</h3>
+                            <h3 class="questreward__cost">@Model.Type</h3>
+                            <p class="questreward__description">@Model.Description</p>
+                        </div>
+                    }
+                    <form asp-action="DeleteArtifact" method="post">
+                        <input type="submit" value="Delete" class="dropdown__button" />
+                    </form>
+                    <input class="dropdown__button" type="button" value="No -> go back!" onclick="location.href='@Url.Action("ViewAllArtifacts", "Artifact")'" />
+
+                </div>
+            </div>
+    </div>

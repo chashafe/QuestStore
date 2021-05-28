@@ -1,0 +1,21 @@
+@inject QuestStoreNAT.web.Services.ICurrentSession Session
+
+@{
+    ViewData["Title"] = "Welcome Page";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+    <div class="panelWelcome">
+        <div class="welcomeHeader">WELCOME<br><span id="nameStudent">@Session.LoggedUser.FirstName !</span></div>
+
+        @if (TempData["MessageX"] != null)
+        {
+            <div id="info_box" class="hero-landing">
+                <h5 class="info-box">@TempData["MessageX"]</h5>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model QuestStoreNAT.web.Models.Artifact
+
+@{
+    ViewData["Title"] = "BuyArtifact";
+}
+
+<div class="landing">
+
+    <partial name="~/Views/Shared/_SidebarMenu.cshtml">
+
+    <div id="landing__content" class="landing__content landing__content-justify ">
+
+        <h3 class="delete-title">Are you sure you want to buy this Artifact?</h3>
+
+        <div class="hero-landing">
+            @if (Model.Type == TypeClassification.Individual)
+            {
+                <div class="questreward questreward--individual">
+                    <h3 class="questreward__title">@Model.Name</h3>
+                    <h3 class="questreward__cost">@Model.Cost</h3>
+                    <h3 class="questreward__cost">@Model.Type</h3>
+                    <p class="questreward__description">@Model.Description</p>
+                </div>
+            }
+                
+            <form asp-action="BuyArtifact" method="post">
+                <input type="submit" value="Buy" class="dropdown__button" />
+            </form>
+            <input class="dropdown__button" type="button" value="No, It's mistake!" onclick="location.href='@Url.Action("ViewAllArtifacts", "Artifact")'" />
+        </div>
+    </div>
+</div>
